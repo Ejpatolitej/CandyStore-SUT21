@@ -25,6 +25,8 @@ namespace Candy_SUT21.Controllers
         public IActionResult CheckOut(Order order)
         {
             _shoppingCart.ShoppingCartItems = _shoppingCart.GetShoppingCartItems();
+            _shoppingCart.ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal();
+
             if (_shoppingCart.ShoppingCartItems.Count == null)
             {
                 ModelState.AddModelError("", "Your Cart is Empty");
@@ -41,6 +43,11 @@ namespace Candy_SUT21.Controllers
 
             return View(order);
         }
+        public IActionResult ViewAndPay()
+        {
+            return View();
+        }
+
 
         public IActionResult CheckoutComplete()
         {

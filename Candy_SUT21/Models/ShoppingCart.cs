@@ -10,11 +10,11 @@ namespace Candy_SUT21.Models
     public class ShoppingCart
     {
         private readonly AppDbContext _appDbContext;
-
         public string ShoppingCartId { get; set; }
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
+		public decimal ShoppingCartTotal { get; internal set; }
 
-        public ShoppingCart(AppDbContext appDbContext)
+		public ShoppingCart(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
